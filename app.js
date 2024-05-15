@@ -6,6 +6,7 @@ require("dotenv").config();
 const DB_SENHA = process.env.DB_SENHA;
 const DB_USER = process.env.DB_USER;
 const PORT = 3000;
+const rotaUsuarios = require('./routes/usuarios');
 
 //config
     //body-parser
@@ -23,6 +24,8 @@ const PORT = 3000;
 app.get("/", (req,res) => {
     res.send("Ola mundo");
 })
+
+app.use('/usuarios', rotaUsuarios);
 
 //server
 app.listen(PORT, () => {

@@ -7,6 +7,7 @@ const DB_SENHA = process.env.DB_SENHA;
 const DB_USER = process.env.DB_USER;
 const PORT = 3000;
 const rotaUsuarios = require('./routes/usuarios');
+const rotaTarefas = require("./routes/tarefas");
 
 //config
     //body-parser
@@ -26,6 +27,7 @@ app.get("/", (req,res) => {
 })
 
 app.use('/usuarios', rotaUsuarios);
+app.use("/tarefas", rotaTarefas);
 
 //server
 app.listen(PORT, () => {

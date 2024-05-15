@@ -12,7 +12,8 @@ const Tarefa = new Schema({
     },
     isProximosDias: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     }
 });
 

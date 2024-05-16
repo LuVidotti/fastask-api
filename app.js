@@ -8,6 +8,7 @@ const DB_USER = process.env.DB_USER;
 const PORT = 3000;
 const rotaUsuarios = require('./routes/usuarios');
 const rotaTarefas = require("./routes/tarefas");
+const rotaListas = require('./routes/listas');
 
 //config
     //body-parser
@@ -28,6 +29,7 @@ app.get("/", (req,res) => {
 
 app.use('/usuarios', rotaUsuarios);
 app.use("/tarefas", rotaTarefas);
+app.use("/listas", rotaListas);
 
 //server
 app.listen(PORT, () => {

@@ -9,6 +9,7 @@ const PORT = 3000;
 const rotaUsuarios = require('./routes/usuarios');
 const rotaTarefas = require("./routes/tarefas");
 const rotaListas = require('./routes/listas');
+const rotaListaTarefas = require("./routes/listaTarefas");
 
 //config
     //body-parser
@@ -30,6 +31,7 @@ app.get("/", (req,res) => {
 app.use('/usuarios', rotaUsuarios);
 app.use("/tarefas", rotaTarefas);
 app.use("/listas", rotaListas);
+app.use("/lista-tarefas", rotaListaTarefas);
 
 //server
 app.listen(PORT, () => {

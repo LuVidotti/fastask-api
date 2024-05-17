@@ -10,6 +10,7 @@ const rotaUsuarios = require('./routes/usuarios');
 const rotaTarefas = require("./routes/tarefas");
 const rotaListas = require('./routes/listas');
 const rotaListaTarefas = require("./routes/listaTarefas");
+const cors = require('cors');
 
 //config
     //body-parser
@@ -22,6 +23,9 @@ const rotaListaTarefas = require("./routes/listaTarefas");
     }).catch((erro) => {
         console.log("Erro ao se conectar ao banco de dados");
     })
+
+    //cors
+    app.use(cors());
 
 //rotas
 app.get("/", (req,res) => {

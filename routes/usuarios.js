@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET = process.env.SECRET;
 const verificaToken = require('../auth/auth');
+const path = require("path");
 
 router.post("/", upload.single("file"), (req,res) => {
     const file = req.file;
@@ -93,6 +94,11 @@ router.get("/perfil", verificaToken, (req,res) => {
     }).catch((erro) => {
         return res.status(500).json({errorMessage: "Erro interno no servidor", erro:erro});
     })
+})
+
+router.get("/imagem/:url", (req,res) => {
+    const filePath = path.join(__dirname, "../uploads/", req.params.url);
+    return res.status(200).sendFile(filePath);
 })
 
 module.exports = router;

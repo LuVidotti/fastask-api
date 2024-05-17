@@ -66,7 +66,7 @@ router.post("/login", (req,res) => {
 
     Usuario.findOne({email: req.body.email}).then((usuario) => {
         if(!usuario || usuario === null) {
-            return res.status(404).json({message: "Nenhum usuario emcontrado com este e-mail"});
+            return res.status(404).json({message: "Nenhum usuario encontrado com este e-mail"});
         }
 
         bcrypt.compare(req.body.senha, usuario.senha, (erro, batem) => {
@@ -97,7 +97,7 @@ router.get("/perfil", verificaToken, (req,res) => {
 })
 
 router.get("/imagem/:url", (req,res) => {
-    const filePath = path.join(__dirname, "../uploads/", req.params.url);
+    const filePath = path.join(__dirname, "../uploads", req.params.url);
     return res.status(200).sendFile(filePath);
 })
 

@@ -11,6 +11,7 @@ const rotaTarefas = require("./routes/tarefas");
 const rotaListas = require('./routes/listas');
 const rotaListaTarefas = require("./routes/listaTarefas");
 const cors = require('cors');
+const path = require('path')
 
 //config
     //body-parser
@@ -26,6 +27,8 @@ const cors = require('cors');
 
     //cors
     app.use(cors());
+
+    app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //rotas
 app.get("/", (req,res) => {

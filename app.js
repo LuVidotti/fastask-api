@@ -22,7 +22,7 @@ const path = require('path')
     mongoose.connect(`mongodb+srv://${DB_USER}:${DB_SENHA}@cluster0.ayipw1k.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`).then(() => {
         console.log("Conectado ao banco de dados com sucesso!!!");
     }).catch((erro) => {
-        console.log("Erro ao se conectar ao banco de dados");
+        console.log("Erro ao se conectar ao banco de dados, erro: "+erro);
     })
 
     //cors

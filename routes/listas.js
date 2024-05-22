@@ -34,6 +34,16 @@ router.get("/", verificaToken, (req,res) => {
     })
 })
 
+router.get("/:id", verificaToken, (req,res) => {
+    const user = req.user;
+
+    Lista.findOne({_id: req.params.id, userId: user._id}).then((lista) => {
+        return res.status(200).json(lista)
+    }).catch((erro) => {
+        return res.status(500).json({errorMessage: "Erro interno no servidor", erro:erro});
+    })
+})
+
 router.delete("/:id", verificaToken, (req,res) => {
     const user = req.user;
 
